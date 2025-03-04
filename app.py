@@ -61,9 +61,9 @@ async def analyze_file(file: UploadFile = File(...)):
         os.remove(file_path)  # Clean up the temp file
 
         # Send text to Gemini for summarization
-        model = genai.GenerativeModel("gemini-2.0-flash")  # Corrected model usage
+        model = "gemini-2.0-flash" 
         response = model.generate_content(
-            f"Summarize and extract key points from this document:\n{text}"
+            "Summarize and extract key points from this document:\n{text}"
         )
 
         return {"summary": response.text if response else "No summary generated"}
